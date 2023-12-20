@@ -46,24 +46,27 @@ function timer_callback()
 
 			-- get settings of a master source
 			local master_props = obs.obs_source_get_settings(master_source)
-
 			-- get the "window" property which will tell what window the master source is captturing
-			local master_window = obs.obs_data_get_string(master_props, 'window')
+			local master_window = obs.obs_data_get_string(master_props, 'window')			
 			-- yes, it uses windows in "game" capture mode (fuck clarity, I guess?)
 
 			-- get settings of a slave source
 			local slave_props = obs.obs_source_get_settings(slave_source)
+			-- also read the slave props, no need to update anything if there's no need to update anything ;)
+			local slave_window = obs.obs_data_get_string(master_props, 'window')
 
-			-- now that we have both, create a NEW temporary data object (again, no other way from lua, except ffi since 2020)
-			local new_slave_props = obs.obs_data_create()
-			-- copy/paste the window property from the master to the slave
-			obs.obs_data_set_string(slave_props, 'window', master_window)
-			-- set the new temporary data object as properties for the slave source
-			obs.obs_data_set_obj(new_slave_props, "sourceSettings", slave_props)
+			if slave_window ~= master_window then
+				-- now that we have both, create a NEW temporary data object (again, no other way from lua, except ffi since 2020)			
+				local new_slave_props = obs.obs_data_create()
+				-- copy/paste the window property from the master to the slave
+				obs.obs_data_set_string(slave_props, 'window', master_window)
+				-- set the new temporary data object as properties for the slave source
+				obs.obs_data_set_obj(new_slave_props, "sourceSettings", slave_props)
 
-			-- the copied source won't update unless...
-			obs.obs_source_update(slave_source, slave_props)
-			--obs.obs_frontend_open_source_properties(slave_source_name)
+				-- the copied source won't update unless...
+				obs.obs_source_update(slave_source, slave_props)
+				--obs.obs_frontend_open_source_properties(slave_source_name)
+			end
 
 			-- release master and slave objects
 			obs.obs_source_release(master_source)
@@ -169,5 +172,3 @@ function script_load(settings)
 	print("Source Synchronizer script loaded")
 	activate(true)
 end
-
-
