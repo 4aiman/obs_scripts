@@ -12,9 +12,19 @@ Enjoy!
 ## [frame_updater.lua](https://github.com/4aiman/obs_scripts/blob/main/frame_updater.lua)
 Checks the size of a game capture source and updates filepath of an image source to match that.<br>
 Right now only 2 resolutions are supported ad nothing is in the GUI apart from upadte interval and 2 sources: the game capture one and the frame/overlay one.<br>
+Be sure to select the folder with your frames.<br>
+If you want to change your crop filter name, then load the script and *refresh it*. That's the only way to update the list in OBS properties after it's been created, since one can't update a list on properties update. (In reality refreshing recreates the properties object)<br>
 Tinker with it to suit your needs.
 
 ## [death_counter.lua](https://github.com/4aiman/obs_scripts/blob/main/death_counter.lua)
 Uses one of the text sources as a death counter.<br>
 Set up a hotkey and press it for the counter to go up.<br>
 Reset the counter in the script setting window.
+
+## [obs_source_set_settings_fix.lua](https://github.com/4aiman/obs_scripts/blob/main/obs_source_set_settings_fix.lua)
+A helper file that can help one iterate OBS source's properties (also works for filters, as those are treated as sources internally).<br>
+Find details inside the file.
+
+## [DEPS](https://github.com/4aiman/obs_scripts/blob/main/deps)
+This folder contains all the Lua scripts that will help circumvent crappy desing of Lua bindings in OBS.<br>
+
