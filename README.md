@@ -13,3 +13,8 @@ Enjoy!
 Checks the size of a game capture source and updates filepath of an image source to match that.<br>
 Right now only 2 resolutions are supported ad nothing is in the GUI apart from upadte interval and 2 sources: the game capture one and the frame/overlay one.<br>
 Tinker with it to suit your needs.
+
+## [death_counter.lua](https://github.com/4aiman/obs_scripts/blob/main/death_counter.lua)
+Uses one of the text sources as a death counter.<br>
+Set up a hotkey and press it for the counter to go up.<br>
+Reset the counter in the script setting window.
