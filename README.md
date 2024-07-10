@@ -16,7 +16,7 @@ Be sure to select the folder with your frames.<br>
 If you want to change your crop filter name, then load the script and *refresh it*. That's the only way to update the list in OBS properties after it's been created, since one can't update a list on properties update. (In reality refreshing recreates the properties object)<br>
 Tinker with it to suit your needs.
 
-## [frame_updater.lua](https://github.com/4aiman/obs_scripts/blob/main/frame_updater.lua)
+## [frame_updater_custom.lua](https://github.com/4aiman/obs_scripts/blob/main/frame_updater_custom.lua)
 A more elaborate version of the previous script. <br>
 It adds stream number tracking via a text source and a browser source.<br>
 You probably don't need it "as is", but there are things to learn inside:
