@@ -55,7 +55,10 @@ function timer_callback()
 			-- also read the slave props, no need to update anything if there's no need to update anything ;)
 			local slave_window = obs.obs_data_get_string(slave_props, 'window')
 
-			if slave_window ~= master_window then
+			--print("slave " .. (slave_window or "-").. "; master " .. (master_window) or "-")
+			print(string)
+
+			if (slave_window ~= master_window) and not string.match(master_window,"ShaderGlass.exe") then
 				-- copy/paste the window property from the master to the slave
 				obs.obs_data_set_string(slave_props, 'window', master_window)
 				-- the copied source won't update unless...
@@ -167,3 +170,5 @@ function script_load(settings)
 	print("Source Synchronizer script loaded")
 	activate(true)
 end
+
+
