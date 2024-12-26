@@ -37,3 +37,8 @@ Find details inside the file.
 ## [DEPS](https://github.com/4aiman/obs_scripts/blob/main/deps)
 This folder contains all the Lua scripts that will help circumvent crappy desing of Lua bindings in OBS.<br>
 
+## [shaders](https://github.com/4aiman/obs_scripts/blob/main/shaders)
+This folder contains shaders for obs.<br> Not quite a script (and I have an xbrz repo elsewhere), but this one is more of a "spliced" work of other people rather then my own thing like xbrz implementation
+
+
+
